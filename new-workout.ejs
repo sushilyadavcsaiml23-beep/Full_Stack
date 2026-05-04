@@ -1,0 +1,39 @@
+<%- include('partials/header', { title: 'New Workout' }) %>
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h3 mb-4">New Workout</h1>
+        <form action="/workout" method="POST" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="workoutType" class="form-label">Workout Type</label>
+            <input type="text" class="form-control" id="workoutType" name="workoutType" required>
+            <div class="invalid-feedback">Workout type is required.</div>
+          </div>
+          <div class="mb-3">
+            <label for="duration" class="form-label">Duration (minutes)</label>
+            <input type="number" class="form-control" id="duration" name="duration" min="1" required>
+            <div class="invalid-feedback">Enter a valid duration.</div>
+          </div>
+          <div class="mb-3">
+            <label for="caloriesBurned" class="form-label">Calories Burned</label>
+            <input type="number" class="form-control" id="caloriesBurned" name="caloriesBurned" min="0" required>
+            <div class="invalid-feedback">Enter calories burned.</div>
+          </div>
+          <div class="mb-3">
+            <label for="workoutDate" class="form-label">Workout Date</label>
+            <input type="date" class="form-control" id="workoutDate" name="workoutDate" required>
+            <div class="invalid-feedback">Choose a workout date.</div>
+          </div>
+          <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Create Workout</button>
+          <a class="btn btn-secondary" href="/workouts">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

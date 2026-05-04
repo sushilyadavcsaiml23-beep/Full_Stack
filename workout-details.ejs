@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: 'Workout Details' }) %>
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h3 mb-3">Workout Details</h1>
+        <dl class="row">
+          <dt class="col-sm-4">Workout Type</dt>
+          <dd class="col-sm-8"><%= workout.workoutType %></dd>
+          <dt class="col-sm-4">Duration</dt>
+          <dd class="col-sm-8"><%= workout.duration %> minutes</dd>
+          <dt class="col-sm-4">Calories Burned</dt>
+          <dd class="col-sm-8"><%= workout.caloriesBurned %></dd>
+          <dt class="col-sm-4">Workout Date</dt>
+          <dd class="col-sm-8"><%= workout.workoutDate.toISOString().slice(0, 10) %></dd>
+          <dt class="col-sm-4">Notes</dt>
+          <dd class="col-sm-8"><%= workout.notes || 'None' %></dd>
+        </dl>
+        <div class="d-flex gap-2">
+          <a class="btn btn-secondary" href="/workouts">Back</a>
+          <a class="btn btn-primary" href="/workouts/<%= workout._id %>/edit">Edit</a>
+          <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>
